@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  
+  <context-param>
+    <param-name>jdbcURL</param-name>
+    <param-value>jdbc:mysql:///ineuron</param-value>
+  </context-param>
+  
+  <context-param>
+    <param-name>user</param-name>
+    <param-value>root</param-value>
+  </context-param>
+  
+  <context-param>
+    <param-name>password</param-name>
+    <param-value>gopikapassword</param-value>
+  </context-param>
+  
+  <servlet>
+    <servlet-name>ServletContextApp</servlet-name>
+    <servlet-class>com.ServletContext.ServletContextApp</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletContextApp</servlet-name>
+    <url-pattern>/ServletContextApp</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet> 
+    <servlet-name>DemoServletHerer</servlet-name>
+    <servlet-class>com.ServletContext.DemoServletHerer</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DemoServletHerer</servlet-name>
+    <url-pattern>/DemoServletHerer</url-pattern>
+  </servlet-mapping>
+</web-app>

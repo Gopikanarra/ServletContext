@@ -1,0 +1,58 @@
+package com.ServletContext;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Enumeration;
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+
+public class ServletContextApp extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+   static {
+	   System.out.println("Servlet Loading....");
+   }
+    public ServletContextApp() {
+        super();
+        System.out.println("servlet instantiation");
+    }
+
+	public void init() throws ServletException{
+		System.out.println("servlet initialization!!");
+	}
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		ServletContext context=getServletContext();
+		response.setContentType("text/html");
+		PrintWriter pw=response.getWriter();
+		pw.print("<html><head><title>ServletContext</title></head>");
+		pw.print("<body align='center'>");
+		pw.print("<table>");
+		pw.print("<tr><th>ParameterName</th><th>ParameterValue</th></tr>");
+		
+		Enumeration<String> paranames=context.getInitParameterNames();
+		while(paranames.hasMoreElements()) {
+			String pname=(String)paranames.nextElement();
+			String pvalue=context.getInitParameter(pname);
+			pw.print("<tr>");
+			pw.print("<td>"+pname+"</td><td>"+pvalue+"</td>");
+			pw.print("</tr>");
+		}
+		
+		pw.print("</table>");
+		pw.print("</body></html>");
+		
+		
+		
+		
+		
+	}
+
+	
+	
+
+}
